@@ -29,7 +29,7 @@ const workPackagesData: Record<string, any> = {
     startMonth: 0,
     duration: 12,
     leadPartner: "Universidad Politécnica de Madrid",
-    image: "/placeholder.svg",
+    image: "/WP/RDI.jpg",
     objectives: [
       "Design ROV mechanical structure with modular architecture",
       "Integrate high-resolution cameras and sonar sensors",
@@ -106,7 +106,7 @@ const workPackagesData: Record<string, any> = {
     startMonth: 6,
     duration: 18,
     leadPartner: "INESC TEC",
-    image: "/placeholder.svg",
+    image: "/WP/PCS.jpg",
     objectives: [
       "Implement 3D mapping and reconstruction from stereo vision",
       "Develop VQA system for answering queries about underwater scenes",
@@ -184,7 +184,7 @@ const workPackagesData: Record<string, any> = {
     startMonth: 12,
     duration: 15,
     leadPartner: "University of Porto",
-    image: "/placeholder.svg",
+    image: "/WP/MRS.jpg",
     objectives: [
       "Implement multi-agent coordination framework",
       "Develop GenAI-based path planning algorithms",
@@ -255,6 +255,7 @@ const workPackagesData: Record<string, any> = {
     startMonth: 18,
     duration: 12,
     leadPartner: "Universidad Politécnica de Madrid",
+    image: "/WP/TV.jpg",
     objectives: [
       "Conduct comprehensive simulation testing",
       "Perform controlled pool environment tests",
@@ -332,6 +333,7 @@ const workPackagesData: Record<string, any> = {
     startMonth: 0,
     duration: 36,
     leadPartner: "INESC TEC",
+    image: "/WP/DE.jpg",
     objectives: [
       "Publish research papers in high-impact journals",
       "Present findings at international conferences",
@@ -446,7 +448,7 @@ export default async function WorkPackageDetailPage({ params }: { params: Promis
             </Button>
 
             <Card className="overflow-hidden border-border/50">
-              <div className="grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+              <div className="grid gap-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
                 <div className="p-6 md:p-8">
                   <CardHeader className="p-0">
                     <div className="mb-3 flex flex-wrap items-center gap-2">
@@ -457,7 +459,7 @@ export default async function WorkPackageDetailPage({ params }: { params: Promis
                   </CardHeader>
                   <CardContent className="p-0 pt-4">
                     <p className="text-base text-muted-foreground leading-relaxed">{wp.description}</p>
-                    <div className="mt-6 grid gap-4 text-sm sm:grid-cols-2">
+                    {/* <div className="mt-6 grid gap-4 text-sm sm:grid-cols-2">
                       <div>
                         <div className="text-xs uppercase tracking-wide text-muted-foreground">Lead Partner</div>
                         <div className="mt-1 font-medium">{wp.leadPartner}</div>
@@ -488,7 +490,7 @@ export default async function WorkPackageDetailPage({ params }: { params: Promis
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="mt-6">
                       <div className="text-xs uppercase tracking-wide text-muted-foreground">Key Objectives</div>
                       <ul className="mt-3 space-y-2 text-sm">
@@ -503,7 +505,7 @@ export default async function WorkPackageDetailPage({ params }: { params: Promis
                   </CardContent>
                 </div>
                 <div className="p-6 pt-0 md:p-8 md:pl-0 md:pt-8">
-                  <div className="relative h-64 w-full overflow-hidden rounded-2xl bg-muted md:h-full md:min-h-[320px]">
+                  <div className="relative h-64 w-full overflow-hidden rounded-2xl bg-muted md:h-[480px] object-cover">
                     <img
                       src={wp.image || "/placeholder.svg"}
                       alt={`${wp.title} illustration`}

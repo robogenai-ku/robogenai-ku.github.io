@@ -16,73 +16,42 @@ import Image from "next/image"
 const mediaAssets = [
   {
     id: 1,
-    title: "ROV Demo Dive",
-    description: "Field footage from the latest ROV integration tests in controlled waters.",
-    type: "video",
-    url: "/videos/thumbnails/dummy.png",
-    thumbnailUrl: "/videos/thumbnails/dummy.png",
-    videoUrl: "/videos/dummy.mp4",
-    category: "rov",
-    tags: ["ROV", "demo", "tests"],
-    capturedAt: "2024-05-12",
-  },
-  {
-    id: 2,
     title: "Perception Stack Overview",
     description: "A short walkthrough of the perception pipeline and mapping results.",
     type: "video",
     url: "/placeholder.svg",
-    thumbnailUrl: "/placeholder.svg",
+    thumbnailUrl: "/videos/thumbnails/PSO.jpg",
+    videoUrl: "/videos/PSO.mp4",
     category: "mapping",
     tags: ["perception", "mapping", "pipeline"],
     capturedAt: "2024-04-18",
   },
   {
-    id: 4,
+    id: 2,
     title: "Multi-Robot Coordination",
     description: "Highlights from the multi-robot decision-making simulation runs.",
     type: "video",
     url: "/placeholder.svg",
-    thumbnailUrl: "/placeholder.svg",
+    thumbnailUrl: "/videos/thumbnails/MRC.jpg",
+    videoUrl: "/videos/MRC.mp4",
     category: "multi-robot",
     tags: ["coordination", "simulation", "multi-robot"],
     capturedAt: "2024-03-30",
   },
   {
-    id: 5,
+    id: 3,
     title: "Pool Validation Tests",
     description: "Testing session showing system stability and control response.",
     type: "video",
     url: "/placeholder.svg",
-    thumbnailUrl: "/placeholder.svg",
+    thumbnailUrl: "/videos/thumbnails/PVT.jpg",
+    videoUrl: "/videos/PVT.mp4",
     category: "test-results",
     tags: ["validation", "control", "tests"],
     capturedAt: "2024-02-14",
   },
   {
-    id: 6,
-    title: "AI Captioning Demo",
-    description: "Automatic image captioning for underwater scenes in action.",
-    type: "video",
-    url: "/placeholder.svg",
-    thumbnailUrl: "/placeholder.svg",
-    category: "mapping",
-    tags: ["captioning", "vision", "ai"],
-    capturedAt: "2024-01-22",
-  },
-  {
-    id: 7,
-    title: "Project Highlights",
-    description: "A quick recap of milestones and field achievements.",
-    type: "video",
-    url: "/placeholder.svg",
-    thumbnailUrl: "/placeholder.svg",
-    category: "event",
-    tags: ["highlights", "milestones", "fieldwork"],
-    capturedAt: "2023-12-05",
-  },
-  {
-    id: 3,
+    id: 4,
     title: "3D Underwater Map",
     description: "Generated 3D reconstruction of coral reef using stereo vision",
     type: "image",
@@ -287,7 +256,7 @@ export default function MediaPage() {
             <div className="flex flex-1 items-start justify-center min-h-0 self-start p-4">
               {selectedMedia.type === "video" && selectedMedia.videoUrl ? (
                 <video
-                  className="max-h-[calc(85vh-4rem)] w-full rounded-lg bg-muted object-contain"
+                  className="max-h-[calc(85vh-4rem)] w-full rounded-lg bg-muted object-cover"
                   src={selectedMedia.videoUrl}
                   poster={selectedMedia.thumbnailUrl || selectedMedia.url || "/placeholder.svg"}
                   controls
@@ -299,7 +268,7 @@ export default function MediaPage() {
                   alt={selectedMedia.title}
                   width={1280}
                   height={720}
-                  className="max-h-[calc(85vh-4rem)] w-full rounded-lg bg-muted object-contain"
+                  className="max-h-[calc(85vh-4rem)] w-full rounded-lg bg-muted object-cover"
                 />
               )}
             </div>

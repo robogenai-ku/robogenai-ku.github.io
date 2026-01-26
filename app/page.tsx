@@ -17,8 +17,7 @@ export default function HomePage() {
         <ScrollReveal className="relative overflow-hidden border-b border-border/40">
           {/* Background pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,oklch(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
-
-          <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div className="relative mx-auto max-w-7xl px-4 pt-16 pb-20 sm:px-6 sm:pt-16 sm:pb-10 lg:px-8 lg:pt-20 lg:pb-20">
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-2 text-sm">
                 <span className="relative flex h-2 w-2">
@@ -52,11 +51,49 @@ export default function HomePage() {
           </div>
         </ScrollReveal>
 
+        {/* Partner Logos Section */}
+        <ScrollReveal className="border-b border-border/40 bg-muted/35">
+          <div className="mx-auto max-w-7xl sm:px-6 sm:py-5 lg:px-8 pt-5">
+            <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+              <div className="text-center md:text-left">
+                <p className="text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground/70">
+                  Partnerships
+                </p>
+                <h2 className="mt-1 text-base font-semibold tracking-tight text-balance sm:text-lg">
+                  Initiative powered by
+                </h2>
+              </div>
+
+              <div className="grid w-full max-w-md grid-cols-2 gap-3">
+                <div className="group flex items-center justify-center rounded-xl border border-border/40 px-0 py-0 shadow-[0_12px_28px_-22px_oklch(var(--primary)/0.45)] backdrop-blur-sm transition hover:border-primary/40 hover:bg-background">
+                  <Image
+                    src="/logos/DFL-full.webp"
+                    alt="DFL Company"
+                    width={160}
+                    height={64}
+                    className="h-12 w-auto object-contain opacity-80 transition group-hover:opacity-100"
+                  />
+                </div>
+                <div className="group flex items-center justify-center rounded-xl border border-border/40 px-0 py-0 shadow-[0_12px_28px_-22px_oklch(var(--primary)/0.45)] backdrop-blur-sm transition hover:border-primary/40 hover:bg-background">
+                  <Image
+                    src="/logos/ku-full.png"
+                    alt="Khalifa University"
+                    width={360}
+                    height={300}
+                    className="h-20 w-50 object-contain opacity-80 transition group-hover:opacity-100"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
         {/* What / Why / How Section */}
         <ScrollReveal className="border-b border-border/40 py-8 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <Card className="w-full border-border/50">
-              <CardContent className="p-8 sm:p-10">
+            <Card className="relative w-full overflow-hidden border-border/50 bg-background/40 backdrop-blur-md shadow-[0_24px_80px_-60px_oklch(var(--primary)/0.6)]">
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.5),rgba(255,255,255,0.08)_40%,transparent_70%),radial-gradient(circle_at_top,rgba(255,255,255,0.45),transparent_55%)]" />
+              <CardContent className="relative z-10 p-8 sm:p-10">
                 <div className="max-w-3xl">
                   <h2 className="mb-3 text-3xl font-bold tracking-tight sm:text-4xl text-balance">
                     Next-Generation Underwater Robotic System 
@@ -67,17 +104,18 @@ export default function HomePage() {
                 </div>
 
                 <div className="mt-10 grid gap-6 md:grid-cols-[1.3fr_1fr_1fr]">
-                  <Card className="min-w-0 border-border/50">
-                    <div className="overflow-hidden rounded-t-lg bg-muted">
+                  <Card className="relative min-w-0 overflow-hidden border-border/50 bg-gradient-to-br from-background via-bg-secondary/15 to-primary/10 shadow-[0_20px_60px_-40px_oklch(var(--primary)/0.6)]">
+                    <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_top,rgba(255, 255, 255, 0.35),transparent_55%)]" />
+                    <div className="relative z-10 overflow-hidden rounded bg-muted">
                       <Image
-                        src="/placeholder.svg"
+                        src="/cards/what.jpg"
                         alt="Abstract marine robotics concept"
                         width={640}
                         height={240}
                         className="h-24 w-full object-cover"
                       />
                     </div>
-                    <CardContent className="p-5">
+                    <CardContent className="relative z-10 p-5">
                       <h3 className="mb-3 text-lg font-semibold">What</h3>
                       <ul className="list-disc space-y-2 pl-4 text-sm text-muted-foreground">
                         <li>Deploy coordinated teams of autonomous underwater vehicles (AUVs) capable of efficiently surveying large areas.</li>
@@ -91,10 +129,10 @@ export default function HomePage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="min-w-0 border-border/50">
-                    <div className="overflow-hidden rounded-t-lg bg-muted">
+                  <Card className="min-w-0 border-border/40 bg-secondary/8 backdrop-blur-sm">
+                    <div className="overflow-hidden rounded bg-muted">
                       <Image
-                        src="/placeholder.svg"
+                        src="/cards/why.jpg"
                         alt="Underwater research motivation"
                         width={640}
                         height={240}
@@ -107,15 +145,15 @@ export default function HomePage() {
                         <li>Underwater environments are complex, data-rich, and difficult to interpret in real-time.</li>
                         <li>There is a growing need for autonomous, AI-enabled robotic systems to perform long-term monitoring and environmental analysis.</li>
                         <li>Generative AI can summarize, interpret, and visualize underwater sensor data efficiently.</li>
-                        <li>The project supports UAE’s innovation goals in marine technology and sustainable ocean monitoring.</li>
+                        <li>The project supports UAE's innovation goals in marine technology and sustainable ocean monitoring.</li>
                       </ul>
                     </CardContent>
                   </Card>
 
-                  <Card className="min-w-0 border-border/50">
-                    <div className="overflow-hidden rounded-t-lg bg-muted">
+                  <Card className="min-w-0 border-border/40 bg-accent/15 backdrop-blur-sm">
+                    <div className="overflow-hidden rounded bg-muted">
                       <Image
-                        src="/placeholder.svg"
+                        src="/cards/how.jpg"
                         alt="Workflow for underwater AI systems"
                         width={640}
                         height={240}
