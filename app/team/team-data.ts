@@ -1,4 +1,6 @@
-export const teamMembers = [
+import type { TeamMember } from "./team-types"
+
+export const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: "Prof. Jorge Manuel Miranda Dias",
@@ -8,5 +10,64 @@ export const teamMembers = [
     expertise: ["Autonomous Robotic Systems", "Artificial Perception", "Computer Vision", "Neuromorphic Computing"],
     bio: "Prof. Jorge Manuel Miranda Dias is a distinguished researcher and professor specializing in autonomous robotic systems. He holds a Doctor of Science (Habilitation/AgregaAAœo) and a Ph.D. in Electrical Engineering from the University of Coimbra, Portugal. Currently, he serves as a Professor at Khalifa University in Abu Dhabi, UAE, where he leads academic and research efforts in robotic autonomy.\n\nJorge Dias has over four decades of pioneering contributions in artificial perception, computer vision, and robotic vision, notably advancing multi-sensing and multimodal integration since 1984. He significantly influenced visual-inertial (2006, 2007) and visual-auditory sensing (2008), and developed cognitive models for robots using Bayesian frameworks. His research notably impacted active attention (2008), navigation (2005), and multi-robot cooperation (2009). His influential book, Probabilistic Approaches for Robotic Perception (2014), encapsulates his innovative Bayesian techniques in computational intelligence.\n\nBefore his current role in Abu Dhabi, Jorge was a Full Professor at the University of Coimbra (UC) in the Department of Electrical Engineering and Computers (DEEC) until September 2024. During his tenure, he was an active researcher at UC's Institute of Systems and Robotics (ISR). He also played a vital role as Vice-President of Instituto Pedro Nunes (IPN) from 2008 to 2011, where he helped bridge the gap between academia and industry. Moreover, he was the founding Director of the Laboratory of Systems and Automation at IPN.\n\nJorge's recent research focuses on Neuromorphic Computing for Artificial Intelligence and Artificial Perception (2023, 2024), exploring unconventional computing methods applied to robotic systems. During his career he published over 390 scholarly articles in international journals, books, and conferences, marking him as an expert in robotics and artificial perception. Throughout his career, Jorge Dias has been the Principal Investigator for numerous international projects, especially in Europe and the Middle East, advancing the field of autonomous robotic systems and artificial perception.",
     photoUrl: "/DJ.png",
+  },
+  {
+    id: 2,
+    name: "Dr. Federico Renda",
+    role: "Associate Professor, Mechanical & Nuclear Engineering",
+    email: "federico.renda@ku.ac.ae",
+    institution: "Khalifa University",
+    expertise: ["Soft Robotics", "Underwater Robotics", "Geometric Mechanics"],
+    bio: "Before joining Khalifa University, Dr. Renda was a Post-Doctoral Fellow at the BioRobotics Institute of Scuola Superiore Sant’Anna, where he received his Ph.D. degree in 2014. Dr. Renda has been a visiting professor at the National University of Singapore (NUS), the National Institute for Research in Digital Science and Technology (INRIA, Lille), and others. He has been appointed as an Editor and Program Committee Member of prominent robotics journals and conferences, including the International Journal of Robotics Research (IJRR) and the International Conference on Robotics and Automation (ICRA), among others. Dr. Renda's research interests encompass the study of multibody flexible systems, with an emphasis on the modeling and control of soft and underwater robots.",
+    photoUrl: "/FR.jpg",
+  },
+  {
+    id: 3,
+    name: "Dr. Giulia De Masi",
+    role: "Associate Professor in Mathematics, Department of Sciences and Engineering, member of the AI center & specialist of AI Robotics for Marine Science",
+    institution: "Sorbonne University",
+    expertise: ["Collective AI", "Multi-robot Systems", "Energy Efficient Neuromorphic and Bio-Inspired Solutions"],
+    bio: "Dr. Giulia De Masi is an Associate Professor, Department of Sciences and Engineering of Sorbonne University Abu Dhabi, and Principal Investigator at Sorbonne Center for Artificial Intelligence (SCAI). She brings over 20 years of expertise in AI, Machine Learning, and Computational Modeling from both Academia and Industry, with numerous applications to Economics and Engineering. After her PhD on Complex Networks, she was Post-doctoral Researcher in the Polytechnic University of Marche and Visiting Researcher at Hitachi Research Laboratory, in Nara, Japan. Starting In 2008, Dr. Giulia worked for 8 years as a Scientist in the R&D field, where she led Industrial Research projects on AI and Machine Learning applied to Ocean environment. In 2016 she moved to UAE, where she has been Principal Scientist in applied research Institutions, and Faculty in multiple Academic Institutions. Her scientific contributions have been published through numerous articles in leading peer-reviewed journals, presentations at major international conferences, media outreach, patents and reports for the Industry. She is IEEE Senior member and Associate Editor for 'IEEE Robotics and Automation Letters' and for 'IEEE Journal of Oceanic Engineering'. Additionally, she has been program, workshop and tutorial chair for multiple IEEE conferences. She has been recognized for her scientific contributions and scholarship by international awards like 'UAE ambassador for Women in Data Science' (by Stanford University, 2018), 'Women in Engineering (WIE) Propel laureate' by IEEE Oceanic Engineering Society in liaison with WIE (2022), and IEEE Honor member (2024). She leads multidisciplinary projects with an extensive global network of collaborators, blending AI, Collective AI, Multi-Robot Systems, Sustainability, Energy Efficient Neuromorphic and Bio-Inspired Solutions.",
+    photoUrl: "/Giulia.jpg",
+  },
+  {
+    id: 4,
+    name: "Dr. Andrea Tiranti",
+    role: "Post-Doctoral Fellow",
+    institution: "Khalifa University",
+    bio: "Andrea Tiranti received the B.S. degree in Biomedical Engineering from UNIVPM, Italy, in 2019, and the M.Sc. degree in Robotics Engineering from the University of Genoa, Italy, in 2021. He obtained the Ph.D. in Robotics and Autonomous Systems from DIBRIS, University of Genoa, in July 2025. In 2023, he was a visiting researcher at the Institute for Systems and Robotics (ISR), University of Lisbon, Portugal. He was a fellowship researcher and Postdoctoral Fellow at DIBRIS in 2025, and is currently a Postdoctoral Fellow at Khalifa University. He has contributed to nationally funded Italian research projects and has published in peer-reviewed international journals in the fields of marine robotics and ocean engineering. His research interests include control and automation, distributed control systems, marine robotics, and multi-vehicle (multi-agent) systems, with a strong focus on cooperative and underwater applications.",
+    photoUrl: "/Andrea.jpg",
+  },
+  {
+    id: 5,
+    name: "Dr. Vidya Sudevan",
+    role: "Post-Doctoral Fellow",
+    institution: "Khalifa University",
+    bio: "Vidya Sudevan received the B.Tech. and M.Tech. degree in Electrical and Electronics Engineering, and Instrumentation and Control System respectively from University of Calicut, India in 2012 and 2016. She received Ph.D. degree in Robotics at Khalifa University (KU), Abu Dhabi, United Arab Emirates in 2025. She is currently a Research Fellow at Khalifa University. From 2016 to 2021, she was a Research Associate with Khalifa University. Her major research interests are in multimodal perception, spiking neural networks and neuromorphic computing for robotic applications.",
+    photoUrl: "/Vidya.jpeg",
+  },
+  {
+    id: 6,
+    name: "Manda Awad",
+    role: "Research Associate",
+    institution: "Khalifa University",
+    bio: "Manda received her B.Sc. degree in Electrical Engineering from the University of Jordan and her M.Sc. degree in Computer Engineering from the German Jordanian University. She has professional experience in the utilities and automotive industries. Currently, she is a Research Associate at Khalifa University, where her research focuses on developing and optimizing machine learning models for deployment on resource-constrained edge devices, enabling real-time, low-power intelligent applications through TinyML, and advancing visual underwater communication technologies.",
+    photoUrl: "/Manda.jpg",
+  },
+  {
+    id: 7,
+    name: "Rim Eltobgui",
+    role: "PhD Student",
+    institution: "Khalifa University",
+    bio: "Rim ElTobgui received her B.Sc. degree in Electromechanical Engineering from the University of Alexandria, Egypt, in 2021, and her M.Sc. degree in Electrical and Computer Engineering from Khalifa University, UAE, in 2024. She is currently pursuing a Ph.D. in Engineering at Khalifa University, specializing in Robotics. Her research focuses on underwater robot vision and autonomous perception, with particular interest in marine environments. Her doctoral work focuses on leveraging vision-language models (VLMs) to advance underwater scene understanding and support the monitoring of marine environmental health.",
+    photoUrl: "/Rim.jpg",
+  },
+  {
+    id: 8,
+    name: "Mohamed Elhanbaly",
+    role: "PhD Student",
+    institution: "Khalifa University",
+    bio: "Mohamed Elhanbaly received the B.Sc. degree in mechanical engineering from the University of Sharjah, Sharjah, United Arab Emirates, in 2020, and the M.Sc. degree in mechanical engineering from Khalifa University, Abu Dhabi, United Arab Emirates, in 2022, where he is currently pursuing the Ph.D. degree in engineering. His research interests include cooperative localization of autonomous underwater vehicles, underwater acoustic communication, and localization with sensor fusion.",
+    photoUrl: "/Mohd.jpg",
   },
 ]

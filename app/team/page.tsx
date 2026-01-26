@@ -5,7 +5,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Users, ExternalLink, Building2 } from "lucide-react"
 import { teamMembers } from "./team-data"
+import { teamMembersCompact } from "./team-members-compact-data"
 import { TeamMembers } from "./team-members"
+import { TeamMembersCompact } from "./team-members-compact"
 
 const institutions = [
   {
@@ -33,7 +35,7 @@ export default function TeamPage() {
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm">
                 <Users className="h-4 w-4" />
-                <span>{teamMembers.length} Team Members</span>
+                <span>{teamMembers.length+teamMembersCompact.length} Team Members</span>
               </div>
               <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl text-balance">Our Team</h1>
               <p className="text-lg text-muted-foreground text-balance">
@@ -47,7 +49,7 @@ export default function TeamPage() {
         <ScrollReveal className="border-b border-border/40 py-12">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="mb-8 text-center text-2xl font-bold">Partner Institutions</h2>
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-6 md:place-content-center md:[grid-template-columns:repeat(auto-fit,minmax(16rem,26rem))]">
               {institutions.map((inst) => (
                 <Card key={inst.id} className="border-border/50">
                   <CardContent className="p-6 text-center">
@@ -71,7 +73,28 @@ export default function TeamPage() {
         <ScrollReveal className="py-12">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="mb-8 text-center text-2xl font-bold">Research Team</h2>
+            <div className="mb-8 flex justify-center">
+              <div className="flex h-12 w-full max-w-3xl items-center justify-center rounded-full border border-white/40 bg-white/70 px-6 text-xs font-semibold uppercase tracking-[0.35em] text-foreground/70 shadow-sm backdrop-blur">
+                <img
+                  src="/logos/KU.png"
+                  alt="Khalifa University logo"
+                  className="mr-3 h-6 w-6 flex-shrink-0 object-scale-down"
+                />
+                Khalifa University
+              </div>
+            </div>
             <TeamMembers />
+            <div className="mt-10 mb-8 flex justify-center">
+              <div className="flex h-12 w-full max-w-3xl items-center justify-center rounded-full border border-white/40 bg-white/70 px-6 text-xs font-semibold uppercase tracking-[0.35em] text-foreground/70 shadow-sm backdrop-blur">
+                <img
+                  src="/logos/DFL.png"
+                  alt="DFL logo"
+                  className="mr-3 h-8 w-8 flex-shrink-0 object-scale-down"
+                />
+                Dubai Future Lab
+              </div>
+            </div>
+            <TeamMembersCompact />
           </div>
         </ScrollReveal>
 
