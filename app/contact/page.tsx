@@ -108,15 +108,7 @@ export default function ContactPage() {
                           Abu Dhabi, UAE
                         </div>
                       </div>
-                    </div>
-
-                    <div className="flex gap-3">
-                      <Phone className="h-5 w-5 shrink-0 text-primary" />
-                      <div>
-                        <div className="text-sm font-medium">Phone</div>
-                        <div className="text-sm text-muted-foreground">+34 91 000 0000</div>
-                      </div>
-                    </div>
+                    </div>                    
                   </CardContent>
                 </Card>
 

@@ -18,7 +18,7 @@ const navigation = [
 
 const resultsLinks = [
   { name: "GitHub", href: "https://github.com/robogenai" },
-  { name: "SharePoint", href: "https://sharepoint.com" },
+  { name: "SharePoint"},
 ]
 
 export function Navigation() {
@@ -51,18 +51,27 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:gap-1">
-            {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
-                  pathname === item.href ? "bg-accent text-accent-foreground" : "text-foreground/80",
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const isActive = item.href ? pathname === item.href : false
+              const itemClassName = cn(
+                "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                isActive ? "bg-accent text-accent-foreground" : "text-foreground/80",
+              )
+
+              if (!item.href) {
+                return (
+                  <span key={item.name} className={itemClassName}>
+                    {item.name}
+                  </span>
+                )
+              }
+
+              return (
+                <Link key={item.href} href={item.href} className={itemClassName}>
+                  {item.name}
+                </Link>
+              )
+            })}
             <div className="relative group">
               <button
                 type="button"
@@ -72,17 +81,33 @@ export function Navigation() {
                 <ChevronDown className="h-4 w-4" />
               </button>
               <div className="pointer-events-none absolute left-0 top-full z-50 w-48 rounded-md border border-border/60 bg-background/95 p-1 opacity-0 shadow-lg transition group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100 before:absolute before:-top-2 before:left-0 before:h-2 before:w-full before:content-['']">
-                {resultsLinks.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block rounded-md px-3 py-2 text-sm text-foreground/80 transition hover:bg-accent hover:text-accent-foreground"
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                {resultsLinks.map((item) => {
+                  if (!item.href) {
+                    return (
+                      <span
+                        key={item.name}
+                        className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-foreground/80"
+                      >
+                        {item.name}
+                        <span className="rounded bg-muted px-1.5 py-0.5 text-[8px] font-semibold uppercase tracking-wide text-muted-foreground">
+                          Coming Soon
+                        </span>
+                      </span>
+                    )
+                  }
+
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block rounded-md px-3 py-2 text-sm text-foreground/80 transition hover:bg-accent hover:text-accent-foreground"
+                    >
+                      {item.name}
+                    </a>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -98,35 +123,64 @@ export function Navigation() {
       {mobileMenuOpen && (
         <div className="md:hidden">
           <div className="space-y-1 px-4 pb-3 pt-2">
-            {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={cn(
-                  "block rounded-md px-3 py-2 text-base font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
-                  pathname === item.href ? "bg-accent text-accent-foreground" : "text-foreground/80",
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const isActive = item.href ? pathname === item.href : false
+              const itemClassName = cn(
+                "block rounded-md px-3 py-2 text-base font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                isActive ? "bg-accent text-accent-foreground" : "text-foreground/80",
+              )
+
+              if (!item.href) {
+                return (
+                  <span key={item.name} className={itemClassName}>
+                    {item.name}
+                  </span>
+                )
+              }
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={itemClassName}
+                >
+                  {item.name}
+                </Link>
+              )
+            })}
             <div className="border-t border-border/40 pt-2">
               <div className="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 Results
               </div>
-              {resultsLinks.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block rounded-md px-3 py-2 text-base font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground"
-                >
-                  {item.name}
-                </a>
-              ))}
+              {resultsLinks.map((item) => {
+                if (!item.href) {
+                  return (
+                    <span
+                      key={item.name}
+                      className="flex items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-foreground/80"
+                    >
+                      {item.name}
+                      <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+                        Coming Soon
+                      </span>
+                    </span>
+                  )
+                }
+
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block rounded-md px-3 py-2 text-base font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground"
+                  >
+                    {item.name}
+                  </a>
+                )
+              })}
             </div>
           </div>
         </div>

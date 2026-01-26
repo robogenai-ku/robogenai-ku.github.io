@@ -54,15 +54,6 @@ export function Footer() {
                 <Mail className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com/company/robogenai"
-                className="text-muted-foreground transition-colors hover:text-foreground"
-                aria-label="LinkedIn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
                 href="https://github.com/robogenai"
                 className="text-muted-foreground transition-colors hover:text-foreground"
                 aria-label="GitHub"
@@ -72,7 +63,6 @@ export function Footer() {
                 <Github className="h-5 w-5" />
               </a>
             </div>
-            <p className="mt-4 text-xs text-muted-foreground">Funded by the European Commission</p>
           </div>
         </div>
 

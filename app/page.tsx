@@ -157,7 +157,7 @@ export default function HomePage() {
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                     <Waves className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="mb-2 text-xl font-semibold">WP1: ROV Development</h3>
+                  <h3 className="mb-2 text-xl font-semibold">ROV Development</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Advanced underwater vehicles equipped with sensors, cameras, and communication systems designed for
                     AI integration.
