@@ -1,0 +1,12 @@
+export const teamMembers = [
+  {
+    id: 1,
+    name: "Prof. Jorge Manuel Miranda Dias",
+    role: "Professor, Deputy Director, Computer and Information Engineering",
+    email: "jorge.dias@ku.ac.ae",
+    institution: "Khalifa University",
+    expertise: ["Autonomous Robotic Systems", "Artificial Perception", "Computer Vision", "Neuromorphic Computing"],
+    bio: "Prof. Jorge Manuel Miranda Dias is a distinguished researcher and professor specializing in autonomous robotic systems. He holds a Doctor of Science (Habilitation/AgregaAAœo) and a Ph.D. in Electrical Engineering from the University of Coimbra, Portugal. Currently, he serves as a Professor at Khalifa University in Abu Dhabi, UAE, where he leads academic and research efforts in robotic autonomy.\n\nJorge Dias has over four decades of pioneering contributions in artificial perception, computer vision, and robotic vision, notably advancing multi-sensing and multimodal integration since 1984. He significantly influenced visual-inertial (2006, 2007) and visual-auditory sensing (2008), and developed cognitive models for robots using Bayesian frameworks. His research notably impacted active attention (2008), navigation (2005), and multi-robot cooperation (2009). His influential book, Probabilistic Approaches for Robotic Perception (2014), encapsulates his innovative Bayesian techniques in computational intelligence.\n\nBefore his current role in Abu Dhabi, Jorge was a Full Professor at the University of Coimbra (UC) in the Department of Electrical Engineering and Computers (DEEC) until September 2024. During his tenure, he was an active researcher at UC's Institute of Systems and Robotics (ISR). He also played a vital role as Vice-President of Instituto Pedro Nunes (IPN) from 2008 to 2011, where he helped bridge the gap between academia and industry. Moreover, he was the founding Director of the Laboratory of Systems and Automation at IPN.\n\nJorge's recent research focuses on Neuromorphic Computing for Artificial Intelligence and Artificial Perception (2023, 2024), exploring unconventional computing methods applied to robotic systems. During his career he published over 390 scholarly articles in international journals, books, and conferences, marking him as an expert in robotics and artificial perception. Throughout his career, Jorge Dias has been the Principal Investigator for numerous international projects, especially in Europe and the Middle East, advancing the field of autonomous robotic systems and artificial perception.",
+    photoUrl: "/DJ.png",
+  },
+]

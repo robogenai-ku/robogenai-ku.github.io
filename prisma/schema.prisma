@@ -1,0 +1,183 @@
+// RoboGenAI Database Schema
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Institution {
+  id          String        @id @default(cuid())
+  name        String
+  country     String
+  logo        String?
+  website     String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  
+  projects    Project[]
+  teamMembers TeamMember[]
+  
+  @@map("institutions")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  name        String
+  description String   @db.Text
+  startDate   DateTime
+  endDate     DateTime
+  budget      Float?
+  fundingBody String?
+  status      String   @default("active") // active, completed, archived
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  institutionId String
+  institution   Institution @relation(fields: [institutionId], references: [id], onDelete: Cascade)
+  
+  workPackages WorkPackage[]
+  publications Publication[]
+  mediaAssets  MediaAsset[]
+  
+  @@map("projects")
+}
+
+model WorkPackage {
+  id          String   @id @default(cuid())
+  wpNumber    Int      // 1, 2, 3, 4, 5
+  title       String
+  description String   @db.Text
+  objectives  String[] // Array of objectives
+  leadPartner String
+  startMonth  Int      // Month number from project start (0-35)
+  duration    Int      // Duration in months
+  status      String   @default("in-progress") // not-started, in-progress, completed
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  tasks      Task[]
+  milestones Milestone[]
+  
+  @@unique([projectId, wpNumber])
+  @@map("work_packages")
+}
+
+model Task {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  startMonth  Int      // Month number from project start
+  duration    Int      // Duration in months
+  status      String   @default("not-started") // not-started, in-progress, completed, delayed
+  progress    Int      @default(0) // 0-100
+  assignee    String?
+  dependencies String[] // IDs of dependent tasks
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  workPackageId String
+  workPackage   WorkPackage @relation(fields: [workPackageId], references: [id], onDelete: Cascade)
+  
+  @@map("tasks")
+}
+
+model Milestone {
+  id          String   @id @default(cuid())
+  title       String
+  description String?  @db.Text
+  targetMonth Int      // Month number from project start
+  achieved    Boolean  @default(false)
+  achievedAt  DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  workPackageId String
+  workPackage   WorkPackage @relation(fields: [workPackageId], references: [id], onDelete: Cascade)
+  
+  @@map("milestones")
+}
+
+model Publication {
+  id          String   @id @default(cuid())
+  title       String
+  authors     String[] // Array of author names
+  type        String   // journal, conference, preprint, report, thesis
+  venue       String?  // Journal/Conference name
+  year        Int
+  month       Int?
+  doi         String?
+  url         String?
+  pdfUrl      String?
+  abstract    String?  @db.Text
+  keywords    String[] // Array of keywords
+  status      String   @default("published") // submitted, accepted, published
+  citations   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  @@map("publications")
+}
+
+model MediaAsset {
+  id          String   @id @default(cuid())
+  title       String
+  description String?  @db.Text
+  type        String   // image, video, qr-code
+  url         String   // Storage URL
+  thumbnailUrl String?
+  category    String?  // rov, mapping, multi-robot, test-results, event
+  tags        String[] // Array of tags
+  capturedAt  DateTime?
+  uploadedAt  DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  @@map("media_assets")
+}
+
+model TeamMember {
+  id          String   @id @default(cuid())
+  name        String
+  role        String   // PI, Researcher, PhD Student, Engineer, etc.
+  email       String?
+  photoUrl    String?
+  bio         String?  @db.Text
+  expertise   String[] // Array of expertise areas
+  orcid       String?
+  linkedIn    String?
+  website     String?
+  order       Int      @default(999) // For sorting display order
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  institutionId String
+  institution   Institution @relation(fields: [institutionId], references: [id], onDelete: Cascade)
+  
+  @@map("team_members")
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String   @db.Text
+  status    String   @default("unread") // unread, read, responded, archived
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("contact_messages")
+}
