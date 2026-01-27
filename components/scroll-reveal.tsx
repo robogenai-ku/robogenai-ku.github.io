@@ -23,15 +23,38 @@ export function ScrollReveal({ as = "section", children, ...props }: ScrollRevea
   const ref = useRef<HTMLElement | null>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [isVisible, setIsVisible] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    if (shouldReduceMotion || isInView) {
+    if (typeof window === "undefined") {
+      return
+    }
+
+    const mediaQuery = window.matchMedia("(max-width: 768px)")
+    const handleChange = (event: MediaQueryListEvent | MediaQueryList) => {
+      setIsMobile(event.matches)
+    }
+
+    handleChange(mediaQuery)
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", handleChange)
+      return () => mediaQuery.removeEventListener("change", handleChange)
+    }
+
+    // Fallback for older browsers.
+    mediaQuery.addListener(handleChange)
+    return () => mediaQuery.removeListener(handleChange)
+  }, [])
+
+  useEffect(() => {
+    if (shouldReduceMotion || isMobile || isInView) {
       setIsVisible(true)
     }
-  }, [isInView, shouldReduceMotion])
+  }, [isInView, isMobile, shouldReduceMotion])
 
   useEffect(() => {
-    if (isVisible || shouldReduceMotion) {
+    if (isVisible || shouldReduceMotion || isMobile) {
       return
     }
     if (typeof IntersectionObserver === "undefined") {
@@ -45,7 +68,7 @@ export function ScrollReveal({ as = "section", children, ...props }: ScrollRevea
     if (rect.top <= window.innerHeight * 0.9) {
       setIsVisible(true)
     }
-  }, [isVisible, shouldReduceMotion])
+  }, [isVisible, isMobile, shouldReduceMotion])
 
   return (
     <Component

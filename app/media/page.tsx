@@ -16,18 +16,6 @@ import Image from "next/image"
 const mediaAssets = [
   {
     id: 1,
-    title: "Perception Stack Overview",
-    description: "A short walkthrough of the perception pipeline and mapping results.",
-    type: "video",
-    url: "/placeholder.svg",
-    thumbnailUrl: "/videos/thumbnails/PSO.jpg",
-    videoUrl: "/videos/PSO.mp4",
-    category: "mapping",
-    tags: ["perception", "mapping", "pipeline"],
-    capturedAt: "2024-04-18",
-  },
-  {
-    id: 2,
     title: "Multi-Robot Coordination",
     description: "Highlights from the multi-robot decision-making simulation runs.",
     type: "video",
@@ -39,7 +27,7 @@ const mediaAssets = [
     capturedAt: "2024-03-30",
   },
   {
-    id: 3,
+    id: 2,
     title: "Pool Validation Tests",
     description: "Testing session showing system stability and control response.",
     type: "video",
@@ -51,7 +39,7 @@ const mediaAssets = [
     capturedAt: "2024-02-14",
   },
   {
-    id: 4,
+    id: 3,
     title: "3D Underwater Map",
     description: "Generated 3D reconstruction of coral reef using stereo vision",
     type: "image",
