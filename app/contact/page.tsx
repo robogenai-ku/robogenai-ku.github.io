@@ -91,7 +91,7 @@ export default function ContactPage() {
                           href="mailto:robogenku@gmail.com"
                           className="text-sm text-muted-foreground hover:text-foreground"
                         >
-                          robogenku@gmail.com
+                          jorge.dias@ku.ac.ae
                         </a>
                       </div>
                     </div>
