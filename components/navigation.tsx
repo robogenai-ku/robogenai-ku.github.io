@@ -17,7 +17,7 @@ const navigation = [
 ]
 
 const resultsLinks = [
-  { name: "GitHub", href: "https://github.com/robogenai" },
+  { name: "GitHub", href: "https://github.com/robogenai-ku" },
   { name: "SharePoint"},
 ]
 
